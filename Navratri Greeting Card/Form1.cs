@@ -32,6 +32,8 @@ namespace Navratri_Greeting_Card
             Font drawFont = new Font("STENCIL", 32, FontStyle.Bold);
 
             g.DrawString("Happy Navratri", drawFont, drawBrush, 450, 150);
+
+            
         }
     }
 }
