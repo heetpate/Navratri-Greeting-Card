@@ -26,8 +26,8 @@ namespace Navratri_Greeting_Card
         private void Form1_Shown(object sender, EventArgs e)
         {
             Graphics g = this.CreateGraphics();
-            
-            g.Clear(Color.White);
+
+            g.Clear(Color.Yellow);
 
             SolidBrush purpleBrush = new SolidBrush(Color.Purple);
             SolidBrush pintBrush = new SolidBrush(Color.Pink);
@@ -44,16 +44,26 @@ namespace Navratri_Greeting_Card
             //g.DrawRectangle(drawPen1, 75, 75 , 4, 100);
 
             //code for the dandia
-            g.DrawLine(PurplePen, 150, 150, 250, 250);
-            g.DrawLine(PurplePen, 250, 150, 150, 250);
-            g.DrawLine(PurplePen, 900, 900, 750, 750); 
+            //g.DrawLine(PurplePen, 150, 150, 250, 250);
+            //g.DrawLine(PurplePen, 250, 150, 150, 250);
+            //g.DrawLine(PurplePen, 900, 900, 750, 750);
             //g.DrawLine(PurplePen, 350, 350, 150, 650);
+
+            Pen pen = new Pen(Color.Brown, 5);
+
+            // Draw first stick
+            g.DrawLine(pen, 100, 200, 200, 100);
+            g.DrawLine(pen, 200, 100, 250, 150);
+
+            // Draw second stick
+            g.DrawLine(pen, 300, 200, 200, 100);
+            g.DrawLine(pen, 200, 100, 150, 150);
 
             g.DrawLine(blackPen, 10, 23, 2000, 23); //code for the lighting line
 
-           // g.DrawArc(orangePen, 20, 20, 50, 50, 30, 100);
-           
-            g.DrawString("Happy Navratri", drawFont, purpleBrush, 450, 150);
+            // g.DrawArc(orangePen, 20, 20, 50, 50, 30, 100);
+
+            g.DrawString("Happy Navratri", drawFont, purpleBrush, 350, 200);
 
             for (int i = 0; i < 27; i++)
             {
@@ -66,6 +76,11 @@ namespace Navratri_Greeting_Card
         {
             Graphics g = this.CreateGraphics();
 
+            g.Clear(Color.Yellow);
+
+            Pen blackPen = new Pen(Color.Black, 2);
+            g.DrawLine(blackPen, 10, 23, 2000, 25); //code for the lighting line
+
             Random random = new Random();
             for (int z = 0; z < 10; z++)
             {
@@ -76,17 +91,20 @@ namespace Navratri_Greeting_Card
                 }
                 Thread.Sleep(1000);
             }
-        }
 
+            Font drawFont = new Font("STENCIL", 32, FontStyle.Bold);
+            SolidBrush purpleBrush = new SolidBrush(Color.Purple);
+
+            // Animation for "Happy Navratri" text moving to the middle
+            for (int i = 800; i >= 350; i -= 10)
+            {
+                g.Clear(Color.Yellow);
+
+                g.DrawString("Happy Navratri", drawFont, purpleBrush, i, 200);
+                Thread.Sleep(50);
+            }
+        }
     }
+
 }
 
-
-//Random randGen = new Random(1 - 3);
-//for (int i = 0; i < 3; i++)
-//{
-//    randGen.Next(1 - 3);
-//    {
-
-//    }
-//}
