@@ -83,5 +83,8 @@
   <ItemGroup>
     <None Include="Resources\firework-show-short-64657.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\opening-logo-164341.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

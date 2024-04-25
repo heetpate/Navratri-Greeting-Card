@@ -68,5 +68,14 @@ namespace Navratri_Greeting_Card.Properties {
                 return ResourceManager.GetStream("firework", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream openingIntro {
+            get {
+                return ResourceManager.GetStream("openingIntro", resourceCulture);
+            }
+        }
     }
 }

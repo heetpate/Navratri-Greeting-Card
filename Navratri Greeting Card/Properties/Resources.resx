@@ -121,4 +121,7 @@
   <data name="firework" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\firework-show-short-64657.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="openingIntro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\opening-logo-164341.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

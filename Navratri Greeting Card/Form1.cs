@@ -20,9 +20,10 @@ namespace Navratri_Greeting_Card
     public partial class Form1 : Form
     {
         SolidBrush purpleBrush = new SolidBrush(Color.Purple);    // Set all my colors, fonts, and sounds.
-        SolidBrush pintBrush = new SolidBrush(Color.Pink);
+        SolidBrush pinkBrush = new SolidBrush(Color.Pink);
         SolidBrush redBrush = new SolidBrush(Color.Red);
         SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
+        SolidBrush blueBrush = new SolidBrush(Color.Blue);
 
         Font drawFont = new Font("STENCIL", 32, FontStyle.Bold);
         Font arialFont = new Font("Arial", 12, FontStyle.Bold);
@@ -30,10 +31,12 @@ namespace Navratri_Greeting_Card
         Pen blackPen = new Pen(Color.Black, 2);
         Pen orangePen = new Pen(Color.Orange, 5);
         Pen PurplePen = new Pen(Color.Purple, 10);
-        Pen YellowPen = new Pen(Color.Yellow, 10);
+        Pen yellowPen = new Pen(Color.Yellow, 10);
         Pen pen = new Pen(Color.Brown, 5);
+        Pen bluePen = new Pen(Color.Blue);
 
         SoundPlayer firework = new SoundPlayer(Properties.Resources.firework);
+        SoundPlayer startIntro = new SoundPlayer(Properties.Resources.openingIntro);
         public Form1()
         {
             InitializeComponent();
@@ -50,6 +53,8 @@ namespace Navratri_Greeting_Card
 
             g.Clear(Color.Yellow);
 
+            startIntro.Play();
+
             g.DrawLine(pen, 100, 200, 200, 100);  // Draw first stick
             g.DrawLine(pen, 200, 100, 250, 150);
 
@@ -58,7 +63,16 @@ namespace Navratri_Greeting_Card
 
             g.DrawLine(blackPen, 10, 23, 2000, 23); //code for the lighting line
 
-            // g.DrawArc(orangePen, 20, 20, 50, 50, 30, 100);
+            g.DrawEllipse(yellowPen, 150, 325, 50, 60); // code for balloon displaying at the start
+            g.FillEllipse(pinkBrush, 150, 325, 50, 60);
+
+            g.DrawEllipse(yellowPen, 80, 325, 50, 60);
+            g.FillEllipse(blueBrush, 80, 325, 50, 60);
+
+            g.DrawEllipse(yellowPen, 220, 325, 50, 60);
+            g.FillEllipse(redBrush, 220, 325, 50, 60);
+
+            g.DrawLine(blackPen, 200, 450, 225, 400);
 
             g.DrawString("Happy Navratri", drawFont, purpleBrush, 350, 200);
 
@@ -74,16 +88,6 @@ namespace Navratri_Greeting_Card
 
             g.Clear(Color.Yellow);
 
-            int x = 0;
-
-            while (x < 331)
-            {
-                g.Clear(Color.Yellow);
-                g.DrawString("Happy Navratri", drawFont, purpleBrush, 350, 0 + x);
-                x = x + 20;
-                Thread.Sleep(200);
-            }
-            firework.Play();
 
             Pen blackPen = new Pen(Color.Black, 2);
             g.DrawLine(blackPen, 10, 23, 2000, 25); //code for the lighting line
@@ -98,6 +102,28 @@ namespace Navratri_Greeting_Card
                 }
                 Thread.Sleep(1000);
             }
+
+            firework.Play();
+
+            int x = 0;
+            while (x < 300)
+            {
+                g.Clear(Color.Yellow);
+                g.DrawString("Happy Navratri", drawFont, purpleBrush, 350, 0 + x);
+                x = x + 20;
+                Thread.Sleep(200);
+            }
+
+            //int x2 = 0;
+            //while (x2 < 100)
+            //{
+            //    g.Clear(Color.Yellow);
+            //    g.DrawEllipse(yellowPen, 150, 325 + x2, 50, 60); // code for balloon displaying at the start
+            //    g.FillEllipse(pinkBrush, 150, 325 + x2, 50, 60);
+
+            //    g.DrawEllipse(yellowPen, 80, 325 + x2, 50, 60);
+            //    g.FillEllipse(blueBrush, 80, 325 + x2, 50, 60);
+            //}
         }
     }
 }
