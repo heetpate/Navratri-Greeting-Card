@@ -21,9 +21,10 @@ namespace Navratri_Greeting_Card
     {
         SolidBrush purpleBrush = new SolidBrush(Color.Purple);    // Set all my colors, fonts, and sounds.
         SolidBrush pinkBrush = new SolidBrush(Color.Pink);
-        SolidBrush redBrush = new SolidBrush(Color.Red);
+        //  SolidBrush redBrush = new SolidBrush(Color.Red);
         SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
         SolidBrush blueBrush = new SolidBrush(Color.Blue);
+        SolidBrush brownBrush = new SolidBrush(Color.Brown);
 
         Font drawFont = new Font("STENCIL", 32, FontStyle.Bold);
         Font arialFont = new Font("Arial", 12, FontStyle.Bold);
@@ -33,10 +34,11 @@ namespace Navratri_Greeting_Card
         Pen PurplePen = new Pen(Color.Purple, 10);
         Pen yellowPen = new Pen(Color.Yellow, 10);
         Pen pen = new Pen(Color.Brown, 5);
-        Pen bluePen = new Pen(Color.Blue);
+        Pen bluePen = new Pen(Color.Blue, 5);
 
         SoundPlayer firework = new SoundPlayer(Properties.Resources.firework);
-        SoundPlayer startIntro = new SoundPlayer(Properties.Resources.openingIntro);
+        SoundPlayer dholBeat = new SoundPlayer(Properties.Resources.dhol_beats_);
+
         public Form1()
         {
             InitializeComponent();
@@ -53,26 +55,13 @@ namespace Navratri_Greeting_Card
 
             g.Clear(Color.Yellow);
 
-            startIntro.Play();
+            g.DrawLine(bluePen, 100, 200, 200, 100);  // Draw first stick
+            g.DrawLine(bluePen, 200, 100, 250, 150);
 
-            g.DrawLine(pen, 100, 200, 200, 100);  // Draw first stick
-            g.DrawLine(pen, 200, 100, 250, 150);
-
-            g.DrawLine(pen, 300, 200, 200, 100);   // Draw second stick
-            g.DrawLine(pen, 200, 100, 150, 150);
+            g.DrawLine(bluePen, 300, 200, 200, 100);   // Draw second stick
+            g.DrawLine(bluePen, 200, 100, 150, 150);
 
             g.DrawLine(blackPen, 10, 23, 2000, 23); //code for the lighting line
-
-            g.DrawEllipse(yellowPen, 150, 325, 50, 60); // code for balloon displaying at the start
-            g.FillEllipse(pinkBrush, 150, 325, 50, 60);
-
-            g.DrawEllipse(yellowPen, 80, 325, 50, 60);
-            g.FillEllipse(blueBrush, 80, 325, 50, 60);
-
-            g.DrawEllipse(yellowPen, 220, 325, 50, 60);
-            g.FillEllipse(redBrush, 220, 325, 50, 60);
-
-            g.DrawLine(blackPen, 200, 450, 225, 400);
 
             g.DrawString("Happy Navratri", drawFont, purpleBrush, 350, 200);
 
@@ -88,25 +77,13 @@ namespace Navratri_Greeting_Card
 
             g.Clear(Color.Yellow);
 
+            dholBeat.Play();
 
             Pen blackPen = new Pen(Color.Black, 2);
-            g.DrawLine(blackPen, 10, 23, 2000, 25); //code for the lighting line
-
-            Random random = new Random();   // Random code for random colors
-            for (int z = 0; z < 10; z++)   // Loops for the colour to go for 
-            {
-                for (int i = 0; i < 27; i++)  //how many times the colour repeats
-                {
-                    Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
-                    g.FillEllipse(new SolidBrush(randomColor), 10 + i * 50, 25, 10, 20);  //random colour code
-                }
-                Thread.Sleep(1000);
-            }
-
-            firework.Play();
 
             int x = 0;
-            while (x < 300)
+
+            while (x < 225)
             {
                 g.Clear(Color.Yellow);
                 g.DrawString("Happy Navratri", drawFont, purpleBrush, 350, 0 + x);
@@ -114,18 +91,36 @@ namespace Navratri_Greeting_Card
                 Thread.Sleep(200);
             }
 
-            //int x2 = 0;
-            //while (x2 < 100)
-            //{
-            //    g.Clear(Color.Yellow);
-            //    g.DrawEllipse(yellowPen, 150, 325 + x2, 50, 60); // code for balloon displaying at the start
-            //    g.FillEllipse(pinkBrush, 150, 325 + x2, 50, 60);
+            for (int i = 0; i < 501; i = i + 500)   // Makes the two candies.
+            {
+                g.FillEllipse(pinkBrush, 220 + i, 330, 100, 75);
+                g.FillPie(brownBrush, 170 + i, 320, 100, 100, 135, 90);
+                g.FillPie(brownBrush, 270 + i, 320, 100, 100, 315, 90); 
+            }
+            firework.Play();
 
-            //    g.DrawEllipse(yellowPen, 80, 325 + x2, 50, 60);
-            //    g.FillEllipse(blueBrush, 80, 325 + x2, 50, 60);
-            //}
+            g.DrawLine(bluePen, 100, 200, 200, 100);  // Draw first stick
+            g.DrawLine(bluePen, 200, 100, 250, 150);
+
+            g.DrawLine(bluePen, 300, 200, 200, 100);   // Draw second stick
+            g.DrawLine(bluePen, 200, 100, 150, 150);
+
+            Random random = new Random();   // Random code for random colors
+            for (int z = 0; z < 50; z++)   // Loops for the colour to go for 
+            {
+                for (int i = 0; i < 27; i++)  //how many times the colour repeats
+                {
+                    Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+                    g.FillEllipse(new SolidBrush(randomColor), 10 + i * 50, 25, 10, 20);  //random colour code
+                    g.DrawLine(blackPen, 10, 23, 2000, 25);
+                }
+                Thread.Sleep(200);
+            }
+            dholBeat.Stop();
+            firework.Stop();
         }
     }
 }
+
 
 
