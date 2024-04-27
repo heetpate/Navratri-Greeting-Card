@@ -21,7 +21,6 @@ namespace Navratri_Greeting_Card
     {
         SolidBrush purpleBrush = new SolidBrush(Color.Purple);    // Set all my colors, fonts, and sounds.
         SolidBrush pinkBrush = new SolidBrush(Color.Pink);
-        //  SolidBrush redBrush = new SolidBrush(Color.Red);
         SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
         SolidBrush blueBrush = new SolidBrush(Color.Blue);
         SolidBrush brownBrush = new SolidBrush(Color.Brown);
@@ -43,12 +42,10 @@ namespace Navratri_Greeting_Card
         {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
         private void Form1_Shown(object sender, EventArgs e)
         {
             Graphics g = this.CreateGraphics();
